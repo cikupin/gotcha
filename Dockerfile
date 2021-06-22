@@ -2,11 +2,13 @@ FROM alpine:3.10.1
 
 ENV PATH=$PATH:/opt/gothca
 
-WORKDIR /opt/gothca
-COPY ./bin/gotcha /opt/gothca/
-RUN chmod +x /opt/gotcha/gotcha
+WORKDIR /opt
+
+COPY ./bin/gotcha /opt/
+RUN ls /opt
+RUN chmod +x /opt/gotcha
 
 RUN adduser --disabled-password --gecos '' gotcha
 USER gotcha
 
-CMD ["/opt/gotcha/gotcha"]
+CMD ["/opt/gotcha"]
